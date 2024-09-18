@@ -1,0 +1,15 @@
+.container{
+    width: 50%;
+    margin: 0 auto;
+    padding-top: 70px;
+    padding-bottom: 50px;
+}
+
+.errMsg{
+    color: red;
+
+}
+
+.mat-form{
+    width: 90%;
+}

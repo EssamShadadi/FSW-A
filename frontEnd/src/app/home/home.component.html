@@ -1,0 +1,71 @@
+<div class="container">
+
+    <form [formGroup]="addTicket" (ngSubmit)="addNewTicket()">
+
+        <mat-card appearance="outlined">
+            <mat-card-header>
+                <mat-card-title>Submit New Ticket</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <mat-form-field class="mat-form">
+                    <mat-label>Choose Center</mat-label>
+                    <mat-select name="ticketCenterId" formControlName="ticketCenterId" id="ticketCenterId">
+                      <mat-option *ngFor="let center  of centers" value="{{center.centerId}}">{{center.centerName}}</mat-option>
+              
+                    </mat-select>
+                  </mat-form-field >
+                <mat-form-field class="mat-form">
+                    <mat-label>Problem Description</mat-label>
+                    <textarea matInput name="ticketProblemDescription" formControlName="ticketProblemDescription"></textarea>
+               
+                  </mat-form-field>
+                  <mat-form-field class="mat-form">
+                    <mat-label>Problem Type</mat-label>
+                    <mat-select name="ticketProblemType" formControlName="ticketProblemType">
+                      <mat-option  value="software">software</mat-option>
+                      <mat-option  value="hardware">hardware</mat-option>
+              
+                    </mat-select>
+                  </mat-form-field>
+                  <mat-form-field class="mat-form">
+                    <mat-label>Device Type</mat-label>
+                    <input matInput placeholder="Laptop, Mobile, Printer, Access Point" name="ticketDeviceType" formControlName="ticketDeviceType">
+                  
+                  </mat-form-field>
+                  <mat-form-field class="mat-form">
+                    <mat-label>Os Version</mat-label>
+                    <input matInput placeholder="Os Version" name="ticketOsVersion" formControlName="ticketOsVersion">
+                  
+                  </mat-form-field>
+
+                  <mat-form-field class="mat-form">
+                    <mat-label>affected Applications</mat-label>
+                    <input matInput placeholder="Office, Adobe Acrobat, Chrome, X-Gate, P&L, QuickBooks, BOB" name="ticketAffectedSoftware" formControlName="ticketAffectedSoftware">
+                  
+                  </mat-form-field>
+                  
+                  <mat-form-field class="mat-form">
+                    <mat-label>Error Code</mat-label>
+                    <input matInput placeholder="Code" name="ticketErrorCode" formControlName="ticketErrorCode">
+                  
+                  </mat-form-field>
+
+                  <input type="file" (change)="onFileChange($event)" />
+                  <div class="form-outline">
+                    <div class="progress " *ngIf="progress>0">
+                      <div class="progess-bar bg-info progress-bar-striped progress-bar-animated" aria-valuemin="0"
+                        aria-valuemax="100" role="progressbar" [style.width]="progress + '%'">
+              
+                      </div>
+              
+                    </div>
+                    {{msg}}<br>
+                    {{imgMsg}}
+                  </div>
+            </mat-card-content>
+            <mat-card-actions>
+                <button type="submit" mat-flat-button> Add</button>
+            </mat-card-actions>
+        </mat-card>
+    </form>
+</div>
